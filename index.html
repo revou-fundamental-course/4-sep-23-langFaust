@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="luas">
+            <span><a href="#luas">Luas</a></span>
+        </div>
+        <div class="keliling">
+            <span><a href="#keliling">Keliling</a></span>
+        </div>
+    </nav>
+    <header id="luas">
+        <h1>Calculator Hitung Luas Persegi Panjang</h1>
+    </header>
+    <section id="image">
+        <img src="assets/persegi.jpg" alt="persegi">
+    </section>
+    <section class="input">
+        <div class="form">
+            <form id="calculatorForm">
+                <label for="panjang">Panjang</label>
+                <input type="number" name="panjang" id="panjang" placeholder="Masukkan angka...">
+                <label for="lebar">Lebar</label>
+                <input type="number" name="lebar" id="lebar" placeholder="Masukkan angka...">
+            </form>
+        </div>
+        <div class="button">
+            <button type="button" onclick="hitungLuas()">Hitung Luas</button>
+            <button type="button" onclick="resetForm()">Reset</button>
+        </div>
+    </section>
+    <section class="hasil">
+        <span id="rumus">Luas   = Panjang x Lebar</span> <br>
+        <span id="luasHasil">Luas    = - x -</span> <br>
+        <span id="hasil">Luas   = -</span>
+    </section>
+
+    <div class="keliling">
+        <header id="keliling">
+            <h1>Calculator Hitung Keliling Persegi Panjang</h1>
+        </header>
+    
+        <section class="input">
+            <div class="form">
+                <form id="kelilingForm">
+                    <label for="panjang2">Panjang</label>
+                    <input type="number" name="panjang2" id="panjang2" placeholder="Masukkan angka...">
+                    <label for="lebar2">Lebar</label>
+                    <input type="number" name="lebar2" id="lebar2" placeholder="Masukkan angka...">
+                </form>
+            </div>
+            <div class="button">
+                <button type="button" onclick="hitungKeliling()">Hitung Keliling</button>
+                <button type="button" onclick="resetFormKeliling()">Reset</button>
+            </div>
+        </section>
+        <section class="hasil2">
+            <span id="rumusKeliling">Keliling   =  2(P + L)</span> <br>
+            <span id="kelilingHasil">Keliling    = -</span> <br>
+            <span id="hasil2">Keliling   = -</span>
+        </section>
+    </div>
+
+    <script>
+        function hitungLuas() {
+            const panjang = parseFloat(document.getElementById("panjang").value);
+            const lebar = parseFloat(document.getElementById("lebar").value);
+            const luas = panjang * lebar;
+            document.getElementById("luasHasil").textContent =  `Luas: ${panjang} cm x ${lebar} cm`;
+            document.getElementById("hasil").textContent = `Hasil: ${luas} cm`;
+            document.querySelector(".hasil").style.display = "block";
+        }
+        
+        function resetForm() {
+            document.getElementById("calculatorForm").reset();
+            document.getElementById("luasHasil").textContent = "Luas: - x -";
+            document.getElementById("hasil").textContent = "Hasil: -";
+            document.querySelector(".hasil").style.display = "none";
+        }
+        
+        function hitungKeliling() {
+            const panjang2 = parseFloat(document.getElementById("panjang2").value);
+            const lebar2 = parseFloat(document.getElementById("lebar2").value);
+            const keliling = 2 * (panjang2 + lebar2);
+            document.getElementById("kelilingHasil").textContent =  `Keliling: 2(${panjang2} cm + ${lebar2} cm)`;
+            document.getElementById("hasil2").textContent = `Hasil: ${keliling} cm`;
+            document.querySelector(".hasil2").style.display = "block";
+        }
+        
+        function resetFormKeliling() {
+            document.getElementById("kelilingForm").reset();
+            document.getElementById("kelilingHasil").textContent = "Keliling: -";
+            document.getElementById("hasil2").textContent = "Hasil: -";
+            document.querySelector(".hasil2").style.display = "none";
+        }
+    </script>
+</body>
+</html>
